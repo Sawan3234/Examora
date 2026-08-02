@@ -1,0 +1,180 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syne:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    font-family: 'Inter', sans-serif;
+    @apply bg-[#f8fafc] text-slate-900;
+  }
+
+  html.dark body {
+    @apply bg-slate-950 text-white;
+  }
+
+  html {
+    color-scheme: light;
+  }
+
+  html.dark {
+    color-scheme: dark;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Poppins', sans-serif;
+  }
+
+  code {
+    font-family: 'Space Mono', monospace;
+  }
+}
+
+@layer components {
+  .toast {
+    @apply pointer-events-auto relative flex items-start gap-3 overflow-hidden rounded-2xl border bg-white px-4 py-3 shadow-[0_18px_45px_rgba(15,23,42,0.18)] transition-all duration-300 opacity-0 translate-y-[-8px];
+  }
+
+  .toast.show {
+    @apply opacity-100 translate-y-0;
+  }
+
+  .toast.hide {
+    @apply opacity-0 translate-y-[-8px];
+  }
+
+  .toast.success {
+    @apply border-green-200;
+  }
+
+  .toast.error {
+    @apply border-red-200;
+  }
+
+  .toast.info {
+    @apply border-blue-200;
+  }
+
+  .toast.warning {
+    @apply border-yellow-200;
+  }
+
+  .toast-icon {
+    @apply mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-full;
+  }
+
+  .toast.success .toast-icon {
+    @apply text-green-600 bg-green-100;
+  }
+
+  .toast.error .toast-icon {
+    @apply text-red-600 bg-red-100;
+  }
+
+  .toast.info .toast-icon {
+    @apply text-blue-600 bg-blue-100;
+  }
+
+  .toast.warning .toast-icon {
+    @apply text-yellow-600 bg-yellow-100;
+  }
+
+  .toast-icon svg {
+    @apply h-4 w-4;
+  }
+
+  .toast-body {
+    @apply min-w-0 flex-1;
+  }
+
+  .toast-title {
+    @apply text-sm font-semibold text-slate-900;
+  }
+
+  .toast-msg {
+    @apply mt-0.5 text-sm text-slate-600;
+  }
+
+  .toast-close {
+    @apply ml-2 rounded-full px-2 text-lg leading-none text-slate-400 transition-colors hover:text-slate-600;
+  }
+
+  .toast-progress {
+    @apply absolute bottom-0 left-0 h-1;
+  }
+
+  .toast.success .toast-progress {
+    @apply bg-green-500;
+  }
+
+  .toast.error .toast-progress {
+    @apply bg-red-500;
+  }
+
+  .toast.info .toast-progress {
+    @apply bg-blue-500;
+  }
+
+  .toast.warning .toast-progress {
+    @apply bg-yellow-500;
+  }
+
+  .btn-primary {
+    @apply px-6 py-2.5 rounded-lg bg-gradient-to-r from-electric to-blue-600 text-white font-semibold hover:shadow-lg hover:shadow-electric/50 transition-all;
+  }
+
+  .btn-secondary {
+    @apply px-6 py-2.5 rounded-lg bg-slate-800 text-white font-semibold hover:bg-slate-700 transition-colors;
+  }
+
+  .card {
+    @apply bg-slate-800/50 border border-slate-700 rounded-xl p-6;
+  }
+
+  .input-field {
+    @apply w-full px-4 py-3 rounded-lg bg-slate-800 border border-slate-700 text-white placeholder-slate-500 focus:border-electric focus:outline-none transition-colors;
+  }
+
+  .floating-glow {
+    animation: floating-glow 3.4s ease-in-out infinite;
+    box-shadow: 0 0 22px rgba(124, 58, 237, 0.35), 0 16px 36px rgba(15, 23, 42, 0.28);
+  }
+}
+
+@keyframes floating-glow {
+  0%,
+  100% {
+    transform: translateY(0);
+    opacity: 0.92;
+    box-shadow: 0 0 18px rgba(124, 58, 237, 0.28), 0 14px 32px rgba(15, 23, 42, 0.24);
+  }
+
+  50% {
+    transform: translateY(-6px);
+    opacity: 1;
+    box-shadow: 0 0 30px rgba(168, 85, 247, 0.45), 0 18px 42px rgba(15, 23, 42, 0.3);
+  }
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-slate-900;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-slate-700 rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-slate-600;
+}
+
+html {
+  transition: background 0.3s, color 0.3s;
+}
