@@ -2,6 +2,9 @@
   "name": "examora-frontend",
   "private": true,
   "version": "1.0.0",
+  "engines": {
+    "node": "20.x"
+  },
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -41,4 +44,5 @@
       "typescript": "^5.0.0"
     }
   }
+  
 }
